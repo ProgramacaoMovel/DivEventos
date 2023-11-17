@@ -7,4 +7,10 @@ Requisitos funcionais:
 	Como administrador quero eliminar noticias
 
 Requisitos não Funcionais:
+	
 
+
+
+
+Link aplicaçoes para estudo de app comerciais:
+	https://canaltech.com.br/apps/melhores-aplicativos-de-noticias-em-tempo-real-177770/
