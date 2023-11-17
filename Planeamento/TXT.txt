@@ -1,0 +1,10 @@
+Requisitos funcionais:
+	Como utilizador quero ver noticias
+	Como utilizador quero procurar noticias
+	Como utilizador quero fazer login na aplicação
+	Como administrador quero adicionar noticias 
+	Como administrador quero editar noticias
+	Como administrador quero eliminar noticias
+
+Requisitos não Funcionais:
+
