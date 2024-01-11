@@ -9,17 +9,31 @@
 
     <Button
         android:id="@+id/btnNavegarParaSegunda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
         android:layout_margin="16dp"
-        android:text="@string/navegar_para_a_pagina_de_login"
         android:backgroundTint="#EBFF5722"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.292" />
+
+    <Button
+        android:id="@+id/btnreg"
+        android:layout_width="128dp"
+        android:layout_height="42dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#EBFF5722"
+        android:text="Registo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <ImageView
         android:id="@+id/imageView"
