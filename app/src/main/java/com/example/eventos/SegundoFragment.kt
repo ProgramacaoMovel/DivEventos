@@ -13,7 +13,6 @@ class SegundoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_segundo, container, false)
-
         val textNomeDetalhes = view.findViewById<TextView>(R.id.textNomeDetalhes)
         val textIdadeDetalhes = view.findViewById<TextView>(R.id.textIdadeDetalhes)
         val textDetalhesTexto = view.findViewById<TextView>(R.id.textDetalhesTexto)

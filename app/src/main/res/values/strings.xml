@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">eventos</string>
+    <string name="init">TODO</string>
+    <string name="navegar_para_a_pagina_de_login">Navegar para a pagina de Login</string>
 </resources>
