@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnNavegarParaSegunda: Button = this.findViewById(R.id.btnNavegarParaSegunda)
+        val btnNavegarParaSegunda: Button = findViewById(R.id.btnNavegarParaSegunda)
 
         // Configure o listener de clique para o botão
         btnNavegarParaSegunda.setOnClickListener {
