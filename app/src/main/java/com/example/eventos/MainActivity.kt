@@ -12,9 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnNavegarParaSegunda: Button = findViewById(R.id.btnNavegarParaSegunda)
 
-        // Configure o listener de clique para o botão
         btnNavegarParaSegunda.setOnClickListener {
-
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
