@@ -13,14 +13,13 @@ class MainActivity : AppCompatActivity() {
 
         val btnNavegarParaSegunda: Button = findViewById(R.id.btnNavegarParaSegunda)
         val btnNavReg : Button = findViewById((R.id.btnreg))
-        val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
         btnNavegarParaSegunda.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
         btnNavReg.setOnClickListener{
-            val intent = Intent(this, signinActivity :: class.java)
+            val intent = Intent(this, RegisterActivity :: class.java)
             startActivity(intent)
         }
     }

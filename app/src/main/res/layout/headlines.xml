@@ -8,8 +8,8 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="79dp"
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -34,8 +34,8 @@
 
     <EditText
         android:id="@+id/Log_email"
-        android:layout_width="358dp"
-        android:layout_height="43dp"
+        android:layout_width="361dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="492dp"
         android:ems="10"
         android:hint="name@email.com"
