@@ -6,6 +6,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+
 class CriarNoticiaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,17 +22,19 @@ class CriarNoticiaActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // Aqui você pode incluir o listener para o spinner se necessário
+        // Listener para o spinner
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                // Ação ao selecionar um item
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                // Faça algo com o item selecionado
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Ação quando nada é selecionado, se necessário
+                // Código opcional para quando nada é selecionado
             }
         }
     }
 }
+
 
 
