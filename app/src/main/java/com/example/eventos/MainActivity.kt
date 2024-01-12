@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        NoticiasModel()
+
 
         val btnNavegarParaSegunda: Button = findViewById(R.id.btnNavegarParaSegunda)
         val btnNavReg : Button = findViewById((R.id.btnreg))
