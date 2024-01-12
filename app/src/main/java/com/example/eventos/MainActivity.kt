@@ -30,17 +30,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Inicializando DrawerLayout e NavigationView
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
+       // Inicializando DrawerLayout e NavigationView
+       // drawerLayout = findViewById(R.id.drawer_layout)
+        //navView = findViewById(R.id.nav_view)
 
         // Configurando o listener para os itens da NavigationView
-        navView.setNavigationItemSelectedListener { menuItem ->
-            menuItem.isChecked = true
-            drawerLayout.closeDrawers()
+        //navView.setNavigationItemSelectedListener { menuItem ->
+          //  menuItem.isChecked = true
+            //drawerLayout.closeDrawers()
             // Lidar com os cliques dos itens aqui
-            true
-        }
+            //true
+        //}
 
         // Aqui você pode adicionar o código para o botão hamburger, se necessário
     }
