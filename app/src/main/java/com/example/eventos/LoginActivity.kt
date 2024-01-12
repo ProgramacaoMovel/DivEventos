@@ -1,5 +1,6 @@
 package com.example.eventos
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -10,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -18,7 +20,8 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // Botão de login
-        val loginButton = findViewById<Button>(R.id.button2)
+        val loginButton : Button = this.findViewById(R.id.btn_login_btn)
+
         loginButton.setOnClickListener {
             performLogin()
         }

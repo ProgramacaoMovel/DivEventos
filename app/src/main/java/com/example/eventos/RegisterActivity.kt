@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
             val apelido = apelidoEditText.text.toString()
 
             if (email.isNotBlank() && password.isNotBlank() && nome.isNotBlank() && apelido.isNotBlank()) {
-                // Criar conta no Firebase Authentication
+
                 auth.createUserWithEmailAndPassword(email.toString(), password.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
