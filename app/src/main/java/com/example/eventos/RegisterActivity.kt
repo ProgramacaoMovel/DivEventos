@@ -18,7 +18,8 @@ class RegisterActivity : AppCompatActivity() {
 
         val btnNavegarParaSegunda: Button = findViewById(R.id.signin_log)
         auth = FirebaseAuth.getInstance()
-
+        //val database = Firebase.database
+       // val myref = database.getReference("user")
         btnNavegarParaSegunda.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -43,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email.toString(), password.toString())
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Registro bem-sucedido
+                           // myref.email.setValue(email)
                             val user = auth.currentUser
 
                             // Atualizar o perfil do usuário com o nome
