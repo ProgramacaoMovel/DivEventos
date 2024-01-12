@@ -4,4 +4,13 @@
     <string name="navegar_para_a_pagina_de_login">Navegar para a pagina de Login</string>
     <string name="Registo" />
     <string name="Login" />
+
+
+    <string-array name="spinner_items">
+        <item>Última Hora</item>
+        <item>Mundo</item>
+        <item>Economia</item>
+        <item>Tecnologia</item>
+        <item>Desporto</item>
+    </string-array>
 </resources>
