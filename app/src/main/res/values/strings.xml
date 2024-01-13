@@ -5,13 +5,20 @@
     <string name="Registo" />
     <string name="Login" />
     <string name="image_description">\n\n</string>
+    <string name="ultima_hora">Última Hora</string>
+    <string name="mundo">Mundo</string>
+    <string name="economia">Economia</string>
+    <string name="desporto">Desporto</string>
+    <string name="tecnologia">Tecnologia</string>
 
-
-    <string-array name="spinner_items">
-        <item>Última Hora</item>
-        <item>Mundo</item>
-        <item>Economia</item>
-        <item>Tecnologia</item>
-        <item>Desporto</item>
+    <!-- Array de categorias -->
+    <string-array name="categories_array">
+        <item>@string/ultima_hora</item>
+        <item>@string/mundo</item>
+        <item>@string/economia</item>
+        <item>@string/desporto</item>
+        <item>@string/tecnologia</item>
     </string-array>
+
+
 </resources>
