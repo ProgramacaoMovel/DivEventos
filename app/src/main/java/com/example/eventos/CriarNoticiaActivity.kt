@@ -20,9 +20,28 @@ class CriarNoticiaActivity : AppCompatActivity() {
         val tituloEditText: EditText = findViewById(R.id.create_titulo_noticia)
         val localizacaoEditText: EditText = findViewById(R.id.create_loc_noticia)
         val textoEditText: EditText = findViewById(R.id.create_corpo_noticia)
-        //val categoriaSpinner =
         val criarNoticiaButton: Button = findViewById(R.id.criarNoticiaButton)
 
+        val spinner: Spinner = findViewById(R.id.spinner)
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.spinner_items, // Certifique-se de ter esse array no seu arquivo strings.xml
+            android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        // Listener para o spinner
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+                // Faça algo com o item selecionado
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Código opcional para quando nada é selecionado
+            }
+        }
 
         criarNoticiaButton.setOnClickListener {
             val titulo = tituloEditText.text.toString().trim()
@@ -34,6 +53,7 @@ class CriarNoticiaActivity : AppCompatActivity() {
                     notTitulo = titulo
                     notLocalizacao = localizacao
                     notTexto = texto
+                    // Aqui você pode adicionar a categoria selecionada do spinner, se necessário
                 }
                 enviarNoticiaParaFirebase(noticia)
             } else {

@@ -12,7 +12,7 @@
     <string name="tecnologia">Tecnologia</string>
 
     <!-- Array de categorias -->
-    <string-array name="categories_array">
+    <string-array name="spinner_items">
         <item>@string/ultima_hora</item>
         <item>@string/mundo</item>
         <item>@string/economia</item>
