@@ -95,34 +95,17 @@
 
     <!-- Botão para selecionar a imagem -->
 
-    <Button
-        android:id="@+id/buttonSelectImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="#7C7C7C"
-        android:text="Seleciona a imagem"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toEndOf="@+id/textView30"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="376dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3"
-        app:layout_constraintVertical_bias="0.026"
+        app:layout_constraintTop_toBottomOf="@+id/create_loc_noticia"
+        app:layout_constraintVertical_bias="0.8"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -135,24 +118,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/create_loc_noticia"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="148dp"
         android:layout_height="40dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="244dp"
         android:text="Formatos suportados:                                                                      PNG, JPEG:"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/create_corpo_noticia"
+        app:layout_constraintVertical_bias="0.088"
         tools:ignore="MissingConstraints" />
 
     <Button
