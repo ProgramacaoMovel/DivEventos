@@ -9,10 +9,11 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard)
-        val btnCriarnoti : Button = this.findViewById(R.id.btn_dash_cr)
+        val btnCriarnoti : Button = this.findViewById(R.id.btnCriarnoti)
         btnCriarnoti.setOnClickListener(){
             val intent = Intent(this, CriarNoticiaActivity::class.java)
             startActivity(intent)
+
         }
     }
 

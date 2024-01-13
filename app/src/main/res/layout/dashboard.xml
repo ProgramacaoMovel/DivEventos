@@ -139,7 +139,8 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.998" />
+            app:layout_constraintVertical_bias="0.998"
+            tools:ignore="BottomAppBar" />
 
         <TextView
             android:id="@+id/textView10"
@@ -196,14 +197,14 @@
             android:id="@+id/imageView9"
             android:layout_width="44dp"
             android:layout_height="39dp"
-            android:tint="#E2FF5722"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.952"
-            app:srcCompat="@drawable/silhueta_de_icone_de_casa" />
+            app:srcCompat="@drawable/silhueta_de_icone_de_casa"
+            app:tint="#E2FF5722" />
 
         <ImageView
             android:id="@+id/imageView10"
@@ -241,14 +242,15 @@
             app:layout_constraintVertical_bias="0.952"
             app:srcCompat="@drawable/fonte_de_luz" />
 
-    <Button
-        android:id="@+id/btn_dash_cr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Criar notícia"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="556dp" />
-    <!-- Seu LinearLayout ou outro layout aqui -->
+        <Button
+            android:id="@+id/btnCriarnoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar notícia"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="667dp"
+            tools:ignore="MissingConstraints" />
+        <!-- Seu LinearLayout ou outro layout aqui -->
 
 
 
