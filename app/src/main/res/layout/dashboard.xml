@@ -242,7 +242,7 @@
             app:srcCompat="@drawable/fonte_de_luz" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/btn_dash_cr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Criar notícia"

@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToMainActivity() {
         // Navega para a MainActivity ou outra atividade após o login
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
     }

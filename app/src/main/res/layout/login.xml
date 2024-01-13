@@ -34,52 +34,40 @@
 
     <EditText
         android:id="@+id/Log_email"
-        android:layout_width="361dp"
+        android:layout_width="300dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="492dp"
+        android:layout_marginBottom="504dp"
         android:ems="10"
         android:hint="name@email.com"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="544dp"
-        android:text="Email"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/Log_password"
-        android:layout_width="358dp"
+        android:layout_width="300dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="448dp"
+        android:layout_marginBottom="432dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_login_btn"
-        android:layout_width="274dp"
+        android:layout_width="200dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="380dp"
+        android:layout_marginBottom="340dp"
         android:backgroundTint="#FF5722"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -87,30 +75,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="404dp" />
+        app:layout_constraintGuide_begin="444dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="316dp"
+        android:layout_marginBottom="276dp"
         android:text="ou"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="274dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="236dp"
-        android:backgroundTint="#61959595"
-        android:text="Continuar com Apple"
-        android:textColor="#575656"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -162,17 +138,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.727"
         app:srcCompat="@drawable/google" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647"
-        app:srcCompat="@drawable/maca" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
