@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,7 +29,7 @@
         android:text="Criar notícia"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonVoltar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -102,7 +102,7 @@
         android:layout_marginBottom="376dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_loc_noticia"
         app:layout_constraintVertical_bias="0.8"
@@ -125,31 +125,42 @@
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="148dp"
-        android:layout_height="40dp"
+        android:layout_width="200dp"
+        android:layout_height="41dp"
         android:text="Formatos suportados:                                                                      PNG, JPEG:"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_corpo_noticia"
-        app:layout_constraintVertical_bias="0.088"
+        app:layout_constraintVertical_bias="0.197"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/criarNoticiaButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF5722"
+        android:backgroundTint="#A4FF5722"
         android:text="Submeter notícia"
         app:icon="@drawable/mandar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.358" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="127dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#A4FF5722"
+        android:text="Submeter Imagem"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/criarNoticiaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/create_corpo_noticia" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

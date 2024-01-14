@@ -53,4 +53,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("androidx.activity:activity-ktx:1.2.0")
+    implementation("androidx.fragment:fragment-ktx:1.3.0")
+
 }
