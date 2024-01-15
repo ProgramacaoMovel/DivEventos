@@ -54,7 +54,7 @@ class CriarNoticiaActivity : AppCompatActivity() {
         val spinner: Spinner = findViewById(R.id.spinner)
         val adapter = ArrayAdapter.createFromResource(
             this,
-            R.array.spinner_items, // Certifique-se de ter esse array no seu arquivo strings.xml
+            R.array.spinner_items,
             android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
