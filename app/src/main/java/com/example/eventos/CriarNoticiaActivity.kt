@@ -144,17 +144,22 @@ class CriarNoticiaActivity : AppCompatActivity() {
         val noticiaId = databaseReference.push().key
         noticia.id = noticiaId ?: ""
 
-
         databaseReference.child(noticiaId ?: "").setValue(noticia)
             .addOnSuccessListener {
                 Toast.makeText(this, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
+
+                // Inicia DashboardActivity após o sucesso
+                val intent = Intent(this, DashboardActivity::class.java)
+                startActivity(intent)
+
+                // Encerra a atividade atual
                 finish()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
             }
-
     }
+
 
     data class Noticia(
         val titulo: String,
