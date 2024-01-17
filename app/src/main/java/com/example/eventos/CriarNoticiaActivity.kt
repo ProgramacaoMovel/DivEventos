@@ -31,6 +31,7 @@ class CriarNoticiaActivity : AppCompatActivity() {
 
     private var imageUri: Uri? = null
     private lateinit var imagePickerLauncher: ActivityResultLauncher<String>
+    val noticia = Noticia(id, titulo, localizacao, texto)
 
     companion object {
         private const val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1
@@ -121,6 +122,8 @@ class CriarNoticiaActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
