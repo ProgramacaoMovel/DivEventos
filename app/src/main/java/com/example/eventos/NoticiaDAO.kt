@@ -19,7 +19,7 @@ class NoticiaDAO(private val url: String, private val usuario: String, private v
                 stmt.setString(1, noticia.titulo)
                 stmt.setString(2, noticia.localizacao)
                 stmt.setString(3, noticia.texto)
-                stmt.setString(4, noticia.imageUrl) // Correção: era noticia.imageUrl, não noticia.imgUrl
+                stmt.setString(4, noticia.imageUrl)
                 stmt.executeUpdate()
             }
         }
@@ -37,7 +37,7 @@ class NoticiaDAO(private val url: String, private val usuario: String, private v
                         titulo = rs.getString("titulo"),
                         localizacao = rs.getString("localizacao"),
                         texto = rs.getString("texto"),
-                        imageUrl = rs.getString("imgUrl") // Correção: era imageUrl, não imgUrl
+                        imageUrl = rs.getString("imgUrl")
                     )
                     noticias.add(noticia)
                 }

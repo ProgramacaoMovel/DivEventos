@@ -18,7 +18,6 @@ class NewsActivity : AppCompatActivity() {
 
         val constraintLayout: ConstraintLayout = findViewById(R.id.constraintLayout)
         val textView19: TextView = findViewById(R.id.textView19)
-        val imageView14: ImageView = findViewById(R.id.imageView14)
         val divider3: android.view.View? = findViewById(R.id.divider3)
         val button12: Button = findViewById(R.id.button12)
         val button13: Button = findViewById(R.id.button13)
@@ -31,7 +30,6 @@ class NewsActivity : AppCompatActivity() {
         val textView22: TextView = findViewById(R.id.textView22)
         val textView24: TextView = findViewById(R.id.textView24)
         val button10: Button = findViewById(R.id.button10)
-        val button: Button = findViewById(R.id.button)
 
         // Aqui você pode definir os ouvintes de eventos e a lógica para cada componente, por exemplo:
         button12.setOnClickListener {
