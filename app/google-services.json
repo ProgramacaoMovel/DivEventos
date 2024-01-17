@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1051083130783",
-    "project_id": "viananoticias-2f2ec",
-    "storage_bucket": "viananoticias-2f2ec.appspot.com"
+    "project_number": "245753237629",
+    "project_id": "cenas-95e95",
+    "storage_bucket": "cenas-95e95.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1051083130783:android:822b99f09acae91fca1faa",
+        "mobilesdk_app_id": "1:245753237629:android:5a6209da3c28d79f7ee114",
         "android_client_info": {
           "package_name": "com.example.eventos"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAlwhO9dlWZtoBSiph6URgtVUt1pFr95EY"
+          "current_key": "AIzaSyDmwwQFeyYv4xktuAGLOvUcgdvzS4lnGeg"
         }
       ],
       "services": {

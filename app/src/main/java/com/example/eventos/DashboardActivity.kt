@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.widget.Button
 import com.example.eventos.R.id.conadunto
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -15,7 +17,6 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard)
-
         // Configuração do botão para criar notícias
         val btnCriarnoti: Button = this.findViewById(R.id.btnCriarnoti)
         btnCriarnoti.setOnClickListener {
