@@ -123,6 +123,10 @@ class CriarNoticiaActivity : AppCompatActivity() {
         }
     }
 
+    private fun Noticia(id: String, titulo: String, localizacao: String, texto: String): Noticia {
+        val noticia = Noticia(id, titulo, localizacao, texto)
+
+    }
 
 
     override fun onRequestPermissionsResult(
