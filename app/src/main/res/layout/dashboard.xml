@@ -250,6 +250,17 @@
             tools:layout_editor_absoluteX="142dp"
             tools:layout_editor_absoluteY="667dp"
             tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/conadunto"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="3dp"
+            tools:ignore="MissingConstraints" />
         <!-- Seu LinearLayout ou outro layout aqui -->
 
 
