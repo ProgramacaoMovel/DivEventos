@@ -87,7 +87,6 @@ class CriarNoticiaActivity : AppCompatActivity() {
             finish()
         }
     }
-
     private fun enviarNoticiaParaFirebase(noticia: dbModel.Noticias) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("Noticias")
         val noticiaId = databaseReference.push().key
