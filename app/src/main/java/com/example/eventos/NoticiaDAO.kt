@@ -6,10 +6,17 @@ import java.sql.DriverManager
 import java.sql.DriverManager.getConnection
 import java.sql.SQLException
 
-class NoticiaDAO(private val url: String, private val usuario: String, private val senha: String) {
+class NoticiaDAO(private val url: String, private val user: String, private val password: String) {
+
+
+    val url = "jdbc:postgresql://localhost:5432/DivEventos"
+    val user = "postgres"
+    val password = "666999"
+    val dao = NoticiaDAO(url, user, password)
+
 
     private fun getConnection(): Connection {
-        return DriverManager.getConnection(url, usuario, senha)
+        return DriverManager.getConnection(url, user, password)
     }
 
     fun criarNoticia(noticia: Noticia) {
