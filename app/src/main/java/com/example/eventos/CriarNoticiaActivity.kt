@@ -11,6 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
 
+
+
+
+
 class CriarNoticiaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,12 +44,22 @@ class CriarNoticiaActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun enviarNoticiaParaFirebase(noticia: dbModel.Noticias) {
         val databaseReference = FirebaseDatabase.getInstance().getReference().child("Noticia")
-        //val noticiaId = databaseReference.push().key // Cria um ID único
-        //noticia.notId = noticiaI
-        databaseReference.setValue(noticia)
+        val noticiaId = databaseReference.push().key // Gera um ID único
+
+        if (noticiaId != null) {
+            noticia.notId = noticiaId
+            databaseReference.child(noticiaId).setValue(noticia)
+                .addOnSuccessListener {
+                }
+                .addOnFailureListener {
+                }
+        } else {
+            // Tratar caso onde noticiaId é nula
+        }
     }
 }
