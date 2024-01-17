@@ -1,4 +1,4 @@
-package com.example.eventos
+package com.example.eventos.model
 
 class dbModel {
     data class Noticias (
