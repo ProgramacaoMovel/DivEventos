@@ -12,6 +12,7 @@
     <string name="tecnologia">Tecnologia</string>
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
 
     <!-- Array de categorias -->
     <string-array name="spinner_items">
