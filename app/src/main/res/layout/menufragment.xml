@@ -31,6 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu" /> <!-- Certifique-se de ter o arquivo drawer_menu.xml em res/menu -->
+        app:menu="@menu/menu_dash" /> <!-- Certifique-se de ter o arquivo menu_dash.xml em res/menu -->
 
 </androidx.drawerlayout.widget.DrawerLayout>
