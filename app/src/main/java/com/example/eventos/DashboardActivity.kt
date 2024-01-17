@@ -10,9 +10,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.navigation.NavigationView
 import android.widget.Button
+import com.example.eventos.R.id.nav_view
+import com.example.eventos.R.layout.menufragment
 
 class DashboardActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard)
@@ -24,67 +27,5 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Configuração da Toolbar
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        // Configuração do DrawerLayout e ActionBarDrawerToggle
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar,
-            R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        // Carregar o fragmento inicial (HomeFragment)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
-                .commit()
-            navView.setCheckedItem(R.id.dashboard)
-        }
-
-        // Configuração do listener para itens do NavigationView
-        navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.dashboard -> {
-                    toolbar.title = "Home"
-                    val fragment = HomeFragment()
-                    supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-                        .replace(R.id.fragment_container, fragment)
-                        .commit()
-                }
-                R.id.highlights-> {
-                    toolbar.title = "Home"
-                    val fragment = HomeFragment()
-                    supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-                        .replace(R.id.fragment_container, fragment)
-                        .commit()
-                }
-                R.id.seguir -> {
-                    toolbar.title = "Home"
-                    val fragment = HomeFragment()
-                    supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-                        .replace(R.id.fragment_container, fragment)
-                        .commit()
-                }
-                R.id.feedback -> {
-                    toolbar.title = "Home"
-                    val fragment = HomeFragment()
-                    supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-                        .replace(R.id.fragment_container, fragment)
-                        .commit()
-                }
-                // Adicione mais casos aqui para outros itens do menu
-            }
-            drawerLayout.closeDrawer(GravityCompat.START)
-            true
-        }
     }
 }
