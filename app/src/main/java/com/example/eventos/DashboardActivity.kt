@@ -22,40 +22,38 @@ class DashboardActivity : AppCompatActivity() {
             val intent = Intent(this, CriarNoticiaActivity::class.java)
             startActivity(intent)
         }
-        val toolbar: Toolbar = findViewById(conadunto)
+
+        // Configuração da Toolbar
+        val toolbar: Toolbar = findViewById(R.id.conadunto) // Use R.id.conadunto
         setSupportActionBar(toolbar)
+    }
 
-        // Em suas atividades
-        fun onCreateOptionsMenu(menu: Menu?): Boolean {
-            menuInflater.inflate(R.menu.menu_dash, menu)
-            return true
-        }
-        fun onOptionsItemSelected(item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.dashboard -> {
-                    val intent = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.highlights -> {
-                    val intent = Intent(this, HeadlinesActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.seguir -> {
-                    val intent = Intent(this, FeedbackActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.feedback -> {
-                    val intent = Intent(this, FeedbackActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> super.onOptionsItemSelected(item)
+    // Sobrescrever onCreateOptionsMenu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_dash, menu)
+        return true
+    }
+
+    // Sobrescrever onOptionsItemSelected
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.dashboard -> {
+                startActivity(Intent(this, DashboardActivity::class.java))
+                true
             }
+            R.id.highlights -> {
+                startActivity(Intent(this, HeadlinesActivity::class.java))
+                true
+            }
+            R.id.seguir -> {
+                startActivity(Intent(this, FeedbackActivity::class.java))
+                true
+            }
+            R.id.feedback -> {
+                startActivity(Intent(this, FeedbackActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-
-
     }
 }
