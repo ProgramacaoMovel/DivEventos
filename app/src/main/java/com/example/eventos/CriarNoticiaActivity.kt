@@ -7,7 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.View  // Importação adicionada
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -19,7 +19,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.firebase.database.FirebaseDatabase
+import com.example.eventos.api.RetrofitInstance
+import com.example.eventos.model.Noticia
+import com.example.eventos.model.ResponseModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class CriarNoticiaActivity : AppCompatActivity() {
@@ -102,7 +107,7 @@ class CriarNoticiaActivity : AppCompatActivity() {
                     texto,
                     imageUri.toString()
                 )
-                enviarNoticiaParaFirebase(noticia)
+                enviarNoticiaParaServidor(noticia)
             } else {
                 Toast.makeText(
                     this,
@@ -138,35 +143,24 @@ class CriarNoticiaActivity : AppCompatActivity() {
         }
     }
 
-    private fun enviarNoticiaParaFirebase(noticia: Noticia) {
-        val databaseReference = FirebaseDatabase.getInstance().getReference("noticias")
-
-        val noticiaId = databaseReference.push().key
-        noticia.id = noticiaId ?: ""
-
-        databaseReference.child(noticiaId ?: "").setValue(noticia)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
-
-                // Inicia DashboardActivity após o sucesso
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
-
-                // Encerra a atividade atual
-                finish()
+    private fun enviarNoticiaParaServidor(noticia: Noticia) {
+        RetrofitInstance.service.criarNoticia(noticia).enqueue(object : Callback<ResponseModel> {
+            override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
+                if (response.isSuccessful && response.body()?.success == true) {
+                    Toast.makeText(this@CriarNoticiaActivity, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
+                    // Inicia DashboardActivity após o sucesso
+                    val intent = Intent(this@CriarNoticiaActivity, DashboardActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@CriarNoticiaActivity, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
+                }
             }
-            .addOnFailureListener {
-                Toast.makeText(this, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
+
+            override fun onFailure(call: Call<ResponseModel>, t: Throwable) {
+                Toast.makeText(this@CriarNoticiaActivity, "Erro na rede: ${t.message}", Toast.LENGTH_SHORT).show()
             }
+        })
     }
-
-
-    data class Noticia(
-        val titulo: String,
-        val localizacao: String,
-        val texto: String,
-        val imageUrl: String,
-        var id: String = ""
-    )
 }
 

@@ -6,32 +6,30 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import com.example.eventos.api.RetrofitInstance
+import com.example.eventos.model.UserRegistration // Esta é a classe de modelo de dados para registro
+import com.example.eventos.model.UserRegistrationResponse
 
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin)
 
         val btnNavegarParaSegunda: Button = findViewById(R.id.signin_log)
-        auth = FirebaseAuth.getInstance()
-        //val database = Firebase.database
-       // val myref = database.getReference("user")
         btnNavegarParaSegunda.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-        auth = FirebaseAuth.getInstance()
 
-        val emailEditText
-        : EditText = this.findViewById(R.id.reg_email)
-        val passwordEditText : EditText = this.findViewById(R.id.reg_pass)
-        val nomeEditText : EditText = this.findViewById(R.id.reg_nome)
-        val apelidoEditText : EditText = this.findViewById(R.id.reg_apelido)
-        val registerButton : Button = this.findViewById(R.id.reg_bbtn_reg)
+        val emailEditText: EditText = findViewById(R.id.reg_email)
+        val passwordEditText: EditText = findViewById(R.id.reg_pass)
+        val nomeEditText: EditText = findViewById(R.id.reg_nome)
+        val apelidoEditText: EditText = findViewById(R.id.reg_apelido)
+        val registerButton: Button = findViewById(R.id.reg_bbtn_reg)
 
         registerButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -40,45 +38,28 @@ class RegisterActivity : AppCompatActivity() {
             val apelido = apelidoEditText.text.toString()
 
             if (email.isNotBlank() && password.isNotBlank() && nome.isNotBlank() && apelido.isNotBlank()) {
-
-                auth.createUserWithEmailAndPassword(email.toString(), password.toString())
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                           // myref.email.setValue(email)
-                            val user = auth.currentUser
-
-                            // Atualizar o perfil do usuário com o nome
-                            val profileUpdates = UserProfileChangeRequest.Builder()
-                                .setDisplayName(nome.toString())
-                                .build()
-
-                            user?.updateProfile(profileUpdates)
-
-                            Toast.makeText(
-                                this@RegisterActivity,
-                                "Registro bem-sucedido",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            // Você pode redirecionar para a próxima atividade aqui, se necessário
-                        } else {
-                            // Falha no registro
-                            Toast.makeText(
-                                this@RegisterActivity,
-                                "Falha no registro. ${task.exception?.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
+                registerUser(email, password, nome, apelido)
             } else {
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "Preencha todos os campos",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
+    private fun registerUser(email: String, password: String, nome: String, apelido: String) {
+        val newUser = UserRegistration(email, password, nome, apelido)
+        RetrofitInstance.service.registerUser(newUser).enqueue(object : Callback<UserRegistrationResponse> {
+            override fun onResponse(call: Call<UserRegistrationResponse>, response: Response<UserRegistrationResponse>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@RegisterActivity, "Registro bem-sucedido", Toast.LENGTH_SHORT).show()
+                    // Redirecionar para a próxima atividade ou login
+                } else {
+                    Toast.makeText(this@RegisterActivity, "Falha no registro", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<UserRegistrationResponse>, t: Throwable) {
+                Toast.makeText(this@RegisterActivity, "Erro na rede: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
-

@@ -49,13 +49,14 @@ android {
         implementation ("androidx.navigation:navigation-ui-ktx:2.4.0")
         implementation ("androidx.activity:activity-ktx:1.2.0")
         implementation ("androidx.fragment:fragment-ktx:1.3.0")
+        implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+        implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
-        // Firebase BOM
-        implementation ("com.google.firebase:firebase-bom:32.3.1")
-        implementation ("com.google.firebase:firebase-analytics-ktx")
-        implementation ("com.google.firebase:firebase-auth-ktx")
-        implementation ("com.google.firebase:firebase-database-ktx")
-        implementation("com.google.firebase:firebase-database:20.3.0")
+
+        // PostgreSQL
+        implementation ("org.postgresql:postgresql:42.2.19")
+        implementation("com.google.ar.sceneform:filament-android:1.17.1")
+
 
         // Testes
         testImplementation ("junit:junit:4.13.2")

@@ -1,56 +1,58 @@
 package com.example.eventos
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
+import com.example.eventos.api.RetrofitInstance
+import com.example.eventos.model.LoginRequest
+import com.example.eventos.model.LoginResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        // Inicializa o FirebaseAuth
-        auth = FirebaseAuth.getInstance()
-
-        // Botão de login
-        val loginButton : Button = this.findViewById(R.id.btn_login_btn)
-
+        val loginButton: Button = findViewById(R.id.btn_login_btn)
         loginButton.setOnClickListener {
             performLogin()
         }
-
     }
+
     private fun performLogin() {
-        val email = findViewById<EditText>(R.id.Log_email).text.toString()
-        val password = findViewById<EditText>(R.id.Log_password).text.toString()
+        val emailEditText = findViewById<EditText>(R.id.Log_email)
+        val passwordEditText = findViewById<EditText>(R.id.Log_password)
+
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            // Autenticação com Firebase usando e-mail e senha
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Login bem-sucedido
+            val loginRequest = LoginRequest(email, password)
+            RetrofitInstance.service.loginUser(loginRequest).enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful && response.body() != null) {
                         goToMainActivity()
                     } else {
-                        // Se falhar, exiba uma mensagem ao usuário
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, "Authentication failed: ${response.code()}", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(baseContext, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
         } else {
             Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun goToMainActivity() {
-        // Navega para a MainActivity ou outra atividade após o login
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
