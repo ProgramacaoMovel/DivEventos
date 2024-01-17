@@ -10,11 +10,9 @@
     <string name="economia">Economia</string>
     <string name="desporto">Desporto</string>
     <string name="tecnologia">Tecnologia</string>
-    <string name="navigation_drawer_open" />
-    <string name="navigation_drawer_close" />
 
     <!-- Array de categorias -->
-    <string-array name="spinner_items">
+    <string-array name="categories_array">
         <item>@string/ultima_hora</item>
         <item>@string/mundo</item>
         <item>@string/economia</item>

@@ -2,10 +2,4 @@
 <resources>
     <item name="container" type="id" />
     <item name="categorySpinner" type="id" />
-    <item name="btnSelectImage" type="id" />
-    <item name="drawer_layout" type="id" />
-    <item name="fragment_container" type="id" />
-    <item name="toolbar" type="id" />
-    <item name="nav_home" type="id" />
-    <item name="constraintLayout" type="id" />
 </resources>

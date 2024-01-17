@@ -2,7 +2,6 @@ package com.example.eventos
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -22,18 +21,29 @@ class MainActivity : AppCompatActivity() {
         val btnNavReg: Button = findViewById(R.id.btnreg)
 
         btnNavegarParaSegunda.setOnClickListener {
-            Log.d("MainActivity", "Navegando para LoginActivity")
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
         btnNavReg.setOnClickListener {
-            Log.d("MainActivity", "Navegando para RegisterActivity")
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
+       // Inicializando DrawerLayout e NavigationView
+       // drawerLayout = findViewById(R.id.drawer_layout)
+        //navView = findViewById(R.id.nav_view)
 
+        // Configurando o listener para os itens da NavigationView
+        //navView.setNavigationItemSelectedListener { menuItem ->
+          //  menuItem.isChecked = true
+            //drawerLayout.closeDrawers()
+            // Lidar com os cliques dos itens aqui
+            //true
+        //}
+
+        // Aqui você pode adicionar o código para o botão hamburger, se necessário
     }
 
+    // Outros métodos da Activity, se houver
 }
