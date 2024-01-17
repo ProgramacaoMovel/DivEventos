@@ -54,11 +54,16 @@ class CriarNoticiaActivity : AppCompatActivity() {
             noticia.notId = noticiaId
             databaseReference.child(noticiaId).setValue(noticia)
                 .addOnSuccessListener {
+                    Toast.makeText(this, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
+                    // Adicione aqui qualquer ação adicional após o sucesso
+                    // Por exemplo, redirecionar para a lista de notícias.
                 }
                 .addOnFailureListener {
+                    Toast.makeText(this, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
                 }
         } else {
             // Tratar caso onde noticiaId é nula
+            Toast.makeText(this, "Erro ao gerar ID da notícia.", Toast.LENGTH_SHORT).show()
         }
     }
 }
