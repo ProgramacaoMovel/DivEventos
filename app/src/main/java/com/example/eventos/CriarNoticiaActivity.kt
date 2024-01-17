@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.eventos.model.dbModel
 import com.google.firebase.database.FirebaseDatabase
 
 class CriarNoticiaActivity : AppCompatActivity() {

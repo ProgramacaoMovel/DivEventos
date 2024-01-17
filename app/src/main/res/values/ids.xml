@@ -2,4 +2,5 @@
 <resources>
     <item name="container" type="id" />
     <item name="categorySpinner" type="id" />
+    <item name="constraintLayout" type="id" />
 </resources>
