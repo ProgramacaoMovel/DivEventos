@@ -43,19 +43,9 @@ class CriarNoticiaActivity : AppCompatActivity() {
     }
 
     private fun enviarNoticiaParaFirebase(noticia: dbModel.Noticias) {
-        val databaseReference = FirebaseDatabase.getInstance().getReference("noticias")
-        val noticiaId = databaseReference.push().key // Cria um ID único
-        noticia.notId = noticiaId
-
-        noticiaId?.let {
-            databaseReference.child(it).setValue(noticia)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
-                    finish() // Fecha a atividade após o sucesso
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
-                }
-        }
+        val databaseReference = FirebaseDatabase.getInstance().getReference().child("Noticia")
+        //val noticiaId = databaseReference.push().key // Cria um ID único
+        //noticia.notId = noticiaI
+        databaseReference.setValue(noticia)
     }
 }
