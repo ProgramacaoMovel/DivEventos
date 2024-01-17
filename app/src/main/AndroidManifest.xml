@@ -29,7 +29,8 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".CriarNoticiaActivity" />
         <activity android:name=".FeedbackActivity" />
-        <activity android:name=".HeadlinesActivity">
+        <activity android:name=".HeadlinesActivity"/>
+        <activity android:name=".HomeFragment">
     </activity>
     </application>
 
