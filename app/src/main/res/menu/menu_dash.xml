@@ -9,11 +9,12 @@
         android:icon="@drawable/ferramenta_de_orientacao_da_bussola"
         android:title="Destaques"/>
     <item
-        android:id="@+id/seguir"
-        android:icon="@drawable/strip_mark"
-        android:title="A Seguir"/>
-    <item
         android:id="@+id/feedback"
         android:icon="@drawable/fonte_de_luz"
         android:title="Feedback"/>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/strip_mark"
+        android:title="Logout"/>
+
 </menu>

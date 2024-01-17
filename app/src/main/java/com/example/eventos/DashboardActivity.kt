@@ -45,12 +45,12 @@ class DashboardActivity : AppCompatActivity() {
                 startActivity(Intent(this, HeadlinesActivity::class.java))
                 true
             }
-            R.id.seguir -> {
+            R.id.feedback -> {
                 startActivity(Intent(this, FeedbackActivity::class.java))
                 true
             }
-            R.id.feedback -> {
-                startActivity(Intent(this, FeedbackActivity::class.java))
+            R.id.logout -> {
+                startActivity(Intent(this, MainActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)

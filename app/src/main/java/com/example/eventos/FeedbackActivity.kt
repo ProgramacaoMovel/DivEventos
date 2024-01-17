@@ -1,43 +1,28 @@
 package com.example.eventos
 
-import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.eventos.R
-
 
 class FeedbackActivity : AppCompatActivity() {
 
-    @SuppressLint("MissingInflatedId")
+    private val REQUEST_CODE = 100 // Constante para a solicitação de seleção de imagem
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.feedback)
 
-        val constraintLayout: ConstraintLayout = findViewById(R.id.constraintLayout)
-        val textView14: TextView = findViewById(R.id.textView14)
-        val textView15: TextView = findViewById(R.id.textView15)
-        val divider: android.view.View? = findViewById(R.id.divider)
         val editTextTextMultiLine: EditText = findViewById(R.id.editTextTextMultiLine)
-        val textView16: TextView = findViewById(R.id.textView16)
         val editTextTextEmailAddress2: EditText = findViewById(R.id.editTextTextEmailAddress2)
-        val textView17: TextView = findViewById(R.id.textView17)
-        val divider2: android.view.View? = findViewById(R.id.divider2)
-        val checkBox: CheckBox = findViewById(R.id.checkBox)
-        val checkBox2: CheckBox = findViewById(R.id.checkBox2)
-        val imageView13: ImageView = findViewById(R.id.imageView13)
-        val textView18: TextView = findViewById(R.id.textView18)
-        val button8: Button = findViewById(R.id.button8)
-        val button9: Button = findViewById(R.id.button9)
+        val imageView13: ImageView = findViewById(R.id.imageView4) // Corrigido para imageView4
+        val button8: Button = findViewById(R.id.button8) // Botão para cancelar ou voltar
+        val button9: Button = findViewById(R.id.button9) // Botão para enviar feedback
+        val btnCapturaEcra: Button = findViewById(R.id.btnCapturaEcra) // Botão para captura de tela
 
-        // Aqui você pode definir os ouvintes de eventos e a lógica para cada componente, por exemplo:
+        btnCapturaEcra.setOnClickListener { onSelectImageClick() } // Listener para btnCapturaEcra
+
         button8.setOnClickListener {
             finish()
         }
@@ -45,7 +30,7 @@ class FeedbackActivity : AppCompatActivity() {
         button9.setOnClickListener {
             val feedback = editTextTextMultiLine.text.toString()
             val emailIntent = Intent(Intent.ACTION_SEND).apply {
-                type = "message/rfc822"
+                type = "text/plain" // Mudança para 'text/plain'
                 putExtra(Intent.EXTRA_EMAIL, arrayOf("feedback@gmail.com"))
                 putExtra(Intent.EXTRA_SUBJECT, "Feedback do Aplicativo")
                 putExtra(Intent.EXTRA_TEXT, feedback)
@@ -58,7 +43,20 @@ class FeedbackActivity : AppCompatActivity() {
             }
         }
 
+    }
 
-        // Adicione mais lógica conforme necessário
+    private fun onSelectImageClick() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val imageUri = data?.data
+            val imageView13: ImageView = findViewById(R.id.imageView4)
+            imageView13.setImageURI(imageUri)
+        }
     }
 }

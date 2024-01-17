@@ -59,6 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                                 "Registro bem-sucedido",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            finish()
 
                             // Você pode redirecionar para a próxima atividade aqui, se necessário
                         } else {
