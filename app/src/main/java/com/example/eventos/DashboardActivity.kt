@@ -24,7 +24,7 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         // Configuração da Toolbar
-        val toolbar: Toolbar = findViewById(R.id.conadunto) // Use R.id.conadunto
+        val toolbar: Toolbar = findViewById(conadunto) // Use R.id.conadunto
         setSupportActionBar(toolbar)
     }
 
