@@ -43,13 +43,37 @@ class DashboardActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
-            navView.setCheckedItem(R.id.nav_home)
+            navView.setCheckedItem(R.id.dashboard)
         }
 
         // Configuração do listener para itens do NavigationView
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_home -> {
+                R.id.dashboard -> {
+                    toolbar.title = "Home"
+                    val fragment = HomeFragment()
+                    supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                        .replace(R.id.fragment_container, fragment)
+                        .commit()
+                }
+                R.id.highlights-> {
+                    toolbar.title = "Home"
+                    val fragment = HomeFragment()
+                    supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                        .replace(R.id.fragment_container, fragment)
+                        .commit()
+                }
+                R.id.seguir -> {
+                    toolbar.title = "Home"
+                    val fragment = HomeFragment()
+                    supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                        .replace(R.id.fragment_container, fragment)
+                        .commit()
+                }
+                R.id.feedback -> {
                     toolbar.title = "Home"
                     val fragment = HomeFragment()
                     supportFragmentManager.beginTransaction()
