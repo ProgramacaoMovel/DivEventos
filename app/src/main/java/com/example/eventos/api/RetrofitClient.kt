@@ -10,7 +10,7 @@ import retrofit2.http.Field
 // Configuração do Retrofit
 object RetrofitInstance {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://localhost:5432/")
+        .baseUrl("http://api.observador.pt/wp/lists/featured/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

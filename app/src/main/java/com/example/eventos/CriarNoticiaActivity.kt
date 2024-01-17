@@ -31,7 +31,6 @@ class CriarNoticiaActivity : AppCompatActivity() {
 
     private var imageUri: Uri? = null
     private lateinit var imagePickerLauncher: ActivityResultLauncher<String>
-    val noticia = Noticia(id, titulo, localizacao, texto)
 
     companion object {
         private const val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1
@@ -101,13 +100,9 @@ class CriarNoticiaActivity : AppCompatActivity() {
             val titulo = tituloEditText.text.toString().trim()
             val localizacao = localizacaoEditText.text.toString().trim()
             val texto = textoEditText.text.toString().trim()
+
             if (titulo.isNotEmpty() && localizacao.isNotEmpty() && texto.isNotEmpty() && imageUri != null) {
-                val noticia = Noticia(
-                    titulo,
-                    localizacao,
-                    texto,
-                    imageUri.toString()
-                )
+                val noticia = Noticia(0, titulo, localizacao, texto, imageUri.toString()) // Assuming 'id' is auto-generated or not needed at creation
                 enviarNoticiaParaServidor(noticia)
             } else {
                 Toast.makeText(
@@ -126,6 +121,7 @@ class CriarNoticiaActivity : AppCompatActivity() {
     private fun Noticia(id: String, titulo: String, localizacao: String, texto: String): Noticia {
         val noticia = Noticia(id, titulo, localizacao, texto)
 
+        return (noticia)
     }
 
 
@@ -155,12 +151,13 @@ class CriarNoticiaActivity : AppCompatActivity() {
             override fun onResponse(call: Call<ResponseModel>, response: Response<ResponseModel>) {
                 if (response.isSuccessful && response.body()?.success == true) {
                     Toast.makeText(this@CriarNoticiaActivity, "Notícia criada com sucesso!", Toast.LENGTH_SHORT).show()
-                    // Inicia DashboardActivity após o sucesso
+
+                    // Navigate to DashboardActivity
                     val intent = Intent(this@CriarNoticiaActivity, DashboardActivity::class.java)
                     startActivity(intent)
-                    finish()
+                    finish() // Optionally, call finish() if you don't want to return to this activity
                 } else {
-                    Toast.makeText(this@CriarNoticiaActivity, "Erro ao criar notícia.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@CriarNoticiaActivity, "Erro ao criar notícia: ${response.errorBody()?.string()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -169,5 +166,8 @@ class CriarNoticiaActivity : AppCompatActivity() {
             }
         })
     }
+
+
 }
+
 

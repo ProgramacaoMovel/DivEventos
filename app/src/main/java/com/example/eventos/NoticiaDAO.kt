@@ -3,26 +3,26 @@ package com.example.eventos
 import com.example.eventos.model.Noticia
 import java.sql.Connection
 import java.sql.DriverManager
-import java.sql.DriverManager.getConnection
 import java.sql.SQLException
+import java.util.Properties
 
 class NoticiaDAO(private val url: String, private val user: String, private val password: String) {
 
+    // Use a companion object for constants, if necessary
+    companion object {
+        private const val INSERT_NOTICIA_SQL = "INSERT INTO noticias (titulo, localizacao, texto, imgUrl) VALUES (?, ?, ?, ?)"
+        private const val SELECT_NOTICIAS_SQL = "SELECT * FROM noticias"
+        private const val DELETE_NOTICIA_SQL = "DELETE FROM noticias WHERE id = ?"
+    }
 
-    val url = "jdbc:postgresql://localhost:5432/DivEventos"
-    val user = "postgres"
-    val password = "666999"
-    val dao = NoticiaDAO(url, user, password)
-
-
+    // The getConnection method remains the same
     private fun getConnection(): Connection {
         return DriverManager.getConnection(url, user, password)
     }
 
     fun criarNoticia(noticia: Noticia) {
-        val sql = "INSERT INTO noticias (titulo, localizacao, texto, imgUrl) VALUES (?, ?, ?, ?)"
         getConnection().use { conn ->
-            conn.prepareStatement(sql).use { stmt ->
+            conn.prepareStatement(INSERT_NOTICIA_SQL).use { stmt ->
                 stmt.setString(1, noticia.titulo)
                 stmt.setString(2, noticia.localizacao)
                 stmt.setString(3, noticia.texto)
@@ -34,9 +34,8 @@ class NoticiaDAO(private val url: String, private val user: String, private val 
 
     fun lerNoticias(): List<Noticia> {
         val noticias = mutableListOf<Noticia>()
-        val sql = "SELECT * FROM noticias"
         getConnection().use { conn ->
-            conn.prepareStatement(sql).use { stmt ->
+            conn.prepareStatement(SELECT_NOTICIAS_SQL).use { stmt ->
                 val rs = stmt.executeQuery()
                 while (rs.next()) {
                     val noticia = Noticia(
@@ -54,13 +53,11 @@ class NoticiaDAO(private val url: String, private val user: String, private val 
     }
 
     fun deletarNoticia(id: Int) {
-        val sql = "DELETE FROM noticias WHERE id = ?"
         getConnection().use { conn ->
-            conn.prepareStatement(sql).use { stmt ->
+            conn.prepareStatement(DELETE_NOTICIA_SQL).use { stmt ->
                 stmt.setInt(1, id)
                 stmt.executeUpdate()
             }
         }
     }
 }
-
