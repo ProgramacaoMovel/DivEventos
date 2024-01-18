@@ -3,19 +3,21 @@ package com.example.eventos
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eventos.model.dbModel
 
-class NotiAdapter(private val noticiasList: List<dbModel.Noticias>) : RecyclerView.Adapter<NotiAdapter.ViewHolder>() {
+class NotiAdapter(private val noticiasList: List<dbModel.Noticias>, param: (Any) -> Unit) : RecyclerView.Adapter<NotiAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imageViewNoticia)
         val tituloView: TextView = view.findViewById(R.id.tituloNoti)
         val localizacaoView: TextView = view.findViewById(R.id.textViewLocalizacao)
         //val textView: TextView = view.findViewById(R.id.textViewTexto)
+        val btnVerMais : Button = view.findViewById(R.id.btnVerMais)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +34,9 @@ class NotiAdapter(private val noticiasList: List<dbModel.Noticias>) : RecyclerVi
         holder.tituloView.text = noticia.notTitulo
         holder.localizacaoView.text = noticia.notLocalizacao
         //holder.textView.text = noticia.notTexto
+
     }
+
 
     override fun getItemCount() = noticiasList.size
 }

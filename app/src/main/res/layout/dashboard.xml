@@ -51,7 +51,7 @@
             android:id="@+id/btnCriarnoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="64dp"
             android:backgroundTint="#D3FF5722"
             android:text="Criar notícia"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -84,11 +84,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewNoticias"
-            android:layout_width="411dp"
-            android:layout_height="477dp"
+            android:layout_width="406dp"
+            android:layout_height="405dp"
             android:padding="16dp"
             app:layout_constraintBottom_toTopOf="@+id/btnCriarnoti"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.137"
             tools:layout_editor_absoluteX="1dp" />
 
 

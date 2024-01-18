@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eventos.R.id.conadunto
 import com.example.eventos.model.dbModel
-import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.database
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -39,10 +37,12 @@ class DashboardActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val noticiasList = mutableListOf<dbModel.Noticias>()
-        val adapter = NotiAdapter(noticiasList)
+        val adapter = NotiAdapter(noticiasList) { noticiaSelecionada ->
+            onItemClicked(noticiaSelecionada as dbModel.Noticias)
+        }
         recyclerView.adapter = adapter
 
-// Carregar dados do Firebase
+        // Carregar dados do Firebase
         val databaseReference = FirebaseDatabase.getInstance().getReference("Noticias")
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -60,6 +60,12 @@ class DashboardActivity : AppCompatActivity() {
         })
 
 
+    }
+
+    private fun onItemClicked(noticia: dbModel.Noticias) {
+        val intent = Intent(this, DetalhesNoticiaActivity::class.java)
+        intent.putExtra("NOTICIA", noticia) // Supondo que Noticias seja Serializable ou Parcelable
+        startActivity(intent)
     }
 
     // Sobrescrever onCreateOptionsMenu
