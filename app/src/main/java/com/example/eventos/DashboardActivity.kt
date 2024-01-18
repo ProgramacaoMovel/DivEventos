@@ -7,8 +7,15 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.eventos.R.id.conadunto
+import com.example.eventos.model.dbModel
 import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 
 
@@ -27,6 +34,32 @@ class DashboardActivity : AppCompatActivity() {
         // Configuração da Toolbar
         val toolbar: Toolbar = findViewById(conadunto) // Use R.id.conadunto
         setSupportActionBar(toolbar)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewNoticias)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val noticiasList = mutableListOf<dbModel.Noticias>()
+        val adapter = NotiAdapter(noticiasList)
+        recyclerView.adapter = adapter
+
+// Carregar dados do Firebase
+        val databaseReference = FirebaseDatabase.getInstance().getReference("Noticias")
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                noticiasList.clear()
+                for (snapshot in dataSnapshot.children) {
+                    val noticia = snapshot.getValue(dbModel.Noticias::class.java)
+                    noticia?.let { noticiasList.add(it) }
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Tratar erro
+            }
+        })
+
+
     }
 
     // Sobrescrever onCreateOptionsMenu

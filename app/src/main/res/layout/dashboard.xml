@@ -46,47 +46,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/conadunto" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.458"
-            app:srcCompat="@drawable/autocarro" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="172dp"
-            android:layout_height="21dp"
-            android:layout_marginBottom="324dp"
-            android:text="Viana do Castelo"
-            android:textColor="#9E676666"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.259"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="287dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="244dp"
-            android:text="Viagens entre Viana e Porto sobem quase 100%"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <Button
             android:id="@+id/btnCriarnoti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#D3FF5722"
             android:text="Criar notícia"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -115,9 +80,16 @@
             app:srcCompat="@drawable/logo"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="0dp" />
-        <!-- Seu LinearLayout ou outro layout aqui -->
 
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNoticias"
+            android:layout_width="411dp"
+            android:layout_height="477dp"
+            android:padding="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnCriarnoti"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:layout_editor_absoluteX="1dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
