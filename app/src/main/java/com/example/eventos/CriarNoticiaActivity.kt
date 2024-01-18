@@ -18,6 +18,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.eventos.model.dbModel
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.util.UUID
 
 class CriarNoticiaActivity : AppCompatActivity() {
 
@@ -66,23 +69,49 @@ class CriarNoticiaActivity : AppCompatActivity() {
             }
         }
 
+       // criarNoticiaButton.setOnClickListener {
+           // val titulo = tituloEditText.text.toString().trim()
+           // val localizacao = localizacaoEditText.text.toString().trim()
+           // val texto = textoEditText.text.toString().trim()
+
+           // if (titulo.isNotEmpty() && localizacao.isNotEmpty() && texto.isNotEmpty()) {
+               // val noticia = dbModel.Noticias().apply {
+                 //   notTitulo = titulo
+                 //   notLocalizacao = localizacao
+                 //   notTexto = texto
+               //     notImageUrl = imageUri?.toString() ?: ""
+               // }
+             //   enviarNoticiaParaFirebase(noticia)
+            //} else {
+            //    Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
+          //  }
+        //}
+
         criarNoticiaButton.setOnClickListener {
             val titulo = tituloEditText.text.toString().trim()
             val localizacao = localizacaoEditText.text.toString().trim()
             val texto = textoEditText.text.toString().trim()
 
-            if (titulo.isNotEmpty() && localizacao.isNotEmpty() && texto.isNotEmpty()) {
-                val noticia = dbModel.Noticias().apply {
-                    notTitulo = titulo
-                    notLocalizacao = localizacao
-                    notTexto = texto
-                    notImageUrl = imageUri?.toString() ?: ""
-                }
-                enviarNoticiaParaFirebase(noticia)
+            if (titulo.isNotEmpty() && localizacao.isNotEmpty() && texto.isNotEmpty() && imageUri != null) {
+                uploadImageToFirebaseStorage(imageUri!!,
+                    onSuccess = { imageUrl ->
+                        val noticia = dbModel.Noticias().apply {
+                            notTitulo = titulo
+                            notLocalizacao = localizacao
+                            notTexto = texto
+                            notImageUrl = imageUrl
+                        }
+                        enviarNoticiaParaFirebase(noticia)
+                    },
+                    onFailure = { e ->
+                        Toast.makeText(this, "Erro ao fazer upload da imagem: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+                )
             } else {
-                Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor, preencha todos os campos e selecione uma imagem.", Toast.LENGTH_SHORT).show()
             }
         }
+
 
         buttonVoltar.setOnClickListener {
             finish()
@@ -116,4 +145,19 @@ class CriarNoticiaActivity : AppCompatActivity() {
             }
         }
     }
+    private fun uploadImageToFirebaseStorage(imageUri: Uri, onSuccess: (String) -> Unit, onFailure: (Exception) -> Unit) {
+        val fileName = UUID.randomUUID().toString()
+        val ref = Firebase.storage.reference.child("noticias_images/$fileName")
+
+        ref.putFile(imageUri)
+            .addOnSuccessListener {
+                ref.downloadUrl.addOnSuccessListener { uri ->
+                    onSuccess(uri.toString())
+                }
+            }
+            .addOnFailureListener { e ->
+                onFailure(e)
+            }
+    }
+
 }

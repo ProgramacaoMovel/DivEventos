@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <!-- Seu LinearLayout ou outro layout aqui
+     <ImageView
         android:id="@+id/imageViewNoticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +15,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/autocarro" />
+        app:srcCompat="@drawable/autocarro" />-->
+    <ImageView
+        android:id="@+id/imageViewNoticia"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop" />
+
 
     <TextView
         android:id="@+id/textViewLocalizacao"
@@ -41,6 +51,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLocalizacao" />
-    <!-- Seu LinearLayout ou outro layout aqui -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.eventos.model.dbModel
 
 class NotiAdapter(private val noticiasList: List<dbModel.Noticias>) : RecyclerView.Adapter<NotiAdapter.ViewHolder>() {
@@ -25,6 +26,9 @@ class NotiAdapter(private val noticiasList: List<dbModel.Noticias>) : RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val noticia = noticiasList[position]
         // Carregue a imagem com Glide ou outra biblioteca
+        Glide.with(holder.itemView.context)
+            .load(noticia.notImageUrl)
+            .into(holder.imageView)
         holder.tituloView.text = noticia.notTitulo
         holder.localizacaoView.text = noticia.notLocalizacao
         //holder.textView.text = noticia.notTexto
